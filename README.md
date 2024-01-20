@@ -11,7 +11,9 @@ services:
     container_name: playit
     image: ghcr.io/mafen/playit-docker:latest
     restart: unless-stopped
-    
+    # If you want to presist the config
+    #volumes:
+    # - ./config:/etc/playit
 ```
 
 Needs an account at this site 
