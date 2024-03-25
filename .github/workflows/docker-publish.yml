@@ -13,6 +13,14 @@ on:
   pull_request:
     branches: [ master ]
 
+  workflow_dispatch:
+    inputs:
+      force-push:
+        description: "push to GHCR"
+        type: boolean
+        required: true
+        default: false
+
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
