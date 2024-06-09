@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  playit:
+    container_name: playit
+    image: ghcr.io/mafen/playit-docker:latest
+    restart: unless-stopped
+    # Please create the folder before mounting it
+    # volumes:
+    #   - /apps/playit-docker/config:/etc/playit
