@@ -1,13 +1,19 @@
 #!/bin/bash
 # If /etc/playit does not contain a file run playit setup
 
-secret_path="/etc/playit/playit.toml"
+playit_secret_path="/etc/playit/playit.toml"
+playit_agent="PLAYIT.GG agent"
 
-if [ ! -f ${secret_path} ]; then
-    echo "Playit is not setup. Running setup..."
+
+if [ ! -f ${PLAYIT_SECRET}  ]; then
+    echo "${playit_agent} is setup with env secret. Starting ${playit_agent}, please wait..."
+    playit --secret ${PLAYIT_SECRET}
+
+elif [ ! -f ${playit_secret_path} ]; then
+    echo "${playit_agent} is not setup. Running setup..."
     playit -s setup
 
 else
-    echo "Playit Agent is already setup. Starting agent, please wait."
-    playit --secret_path=${secret_path}
+    echo "${playit_agent} is already setup. Starting ${playit_agent}, please wait..."
+    playit --secret_path=${playit_secret_path}
 fi

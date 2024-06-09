@@ -5,6 +5,8 @@ services:
     container_name: playit
     image: ghcr.io/mafen/playit-docker:latest
     restart: unless-stopped
+    # environment:
+    #   - PLAYIT_SECRET=your_secret
     # Please create the folder before mounting it
     # volumes:
     #   - /apps/playit-docker/config:/etc/playit
